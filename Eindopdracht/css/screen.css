@@ -1,0 +1,297 @@
+:root {
+  /* colors */
+  --global-color: #013e67;
+  --global-navbar-color: #002239;
+  --global-selected-color: #004370;
+  /* opacity */
+  /* transitions */
+}
+
+/*------------------------------------*\
+  #GENERIC
+  \*------------------------------------*/
+
+/*
+      Generic: Page
+      ---
+      Global page styles + universal box-sizing:
+  */
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Work Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*------------------------------------*\
+  #Elements
+  \*------------------------------------*/
+
+/*
+  Elements: Images
+  ---
+  Default markup for images to make them responsive
+  */
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+      Elements: typography
+      ---
+      Default markup for typographic elements
+  */
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 20px;
+  line-height: 48px;
+  margin: 0 0 0 16px;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0 0 24px;
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin: 0 0 24px;
+}
+
+ul,
+ol {
+  padding-left: 24px;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 23px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: LightGrey;
+  margin: 0 0 24px;
+}
+
+a {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+}
+
+a:visited,
+a:active {
+  color: white;
+}
+
+a:hover,
+a:focus {
+  color: #dbd6d6;
+}
+
+label,
+input {
+  display: block;
+}
+
+select {
+  width: 100%;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+table {
+  margin: 32px auto;
+  width: 95%;
+  table-layout: fixed;
+  padding-bottom: 16px;
+}
+td {
+  font-size: 18px;
+  text-align: center;
+  padding-bottom: 8px;
+}
+th {
+  padding-bottom: 16px;
+}
+
+svg {
+  width: 24px;
+  height: 24px;
+}
+/* c-standing*/
+.c-standings {
+  max-width: 90%;
+  /* background-color: rgb(248, 248, 248); */
+  margin: 32px auto;
+  border: 2px solid var(--global-color);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.c-team {
+  text-align: left;
+}
+/* .c-titel-team-naam {
+  width: 210px;
+} */
+
+.c-navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--global-navbar-color);
+  padding: 16px 0;
+  margin: 0;
+}
+
+.is-selected {
+  background-color: var(--global-selected-color);
+  padding: 16px 64px;
+  margin-top: -16px;
+  margin-bottom: -16px;
+}
+
+.c-nav__option {
+  font-size: 18px;
+  color: white;
+}
+
+.c-nav__option:hover {
+  color: #dbd6d6;
+  cursor: pointer;
+}
+
+.c-matches,
+.c-topscorers {
+  border-collapse: collapse;
+}
+
+.c-match,
+.c-player {
+  border-bottom: 1px solid rgba(8, 8, 8, 0.15);
+  opacity: 0.4;
+  animation: smooth 0.2s ease 0.1s forwards;
+}
+
+.u-hide {
+  display: none;
+}
+
+.c-bal {
+  animation: balBounce 0.8s ease 0.1s forwards;
+}
+
+.c-bal0 {
+  animation: balVal 0.5s ease 0s forwards;
+}
+.c-bal1 {
+  animation: balVal 0.5s ease 0.2s forwards;
+}
+.c-bal2 {
+  animation: balVal 0.5s ease 0.4s forwards;
+}
+.c-bal3 {
+  animation: balVal 0.5s ease 0.6s forwards;
+}
+.c-bal4 {
+  animation: balVal 0.5s ease 0.8s forwards;
+}
+.c-bal5 {
+  animation: balVal 0.5s ease 1s forwards;
+}
+.c-bal6 {
+  animation: balVal 0.5s ease 1.2s forwards;
+}
+.c-bal7 {
+  animation: balVal 0.5s ease 1.4s forwards;
+}
+
+@keyframes smooth {
+  60% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes balVal {
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes balBounce {
+  20% {
+    transform: translateY(14px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(11px);
+  }
+  80% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(8px);
+  }
+}
