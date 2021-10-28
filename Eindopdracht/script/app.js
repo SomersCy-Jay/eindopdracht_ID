@@ -1,3 +1,5 @@
+let competition = 'CL';
+
 const changeView = function () {
   const standings = document.querySelector('.js-nav--option1');
   const matches = document.querySelector('.js-nav--option2');
@@ -55,11 +57,11 @@ const changeView = function () {
   });
 };
 
-const getStandings = function () {
+const getStandings = function (competition) {
   jQuery
     .ajax({
       headers: { 'X-Auth-Token': '506747d80bd74b80b0119f6b6aec04e0' },
-      url: 'http://api.football-data.org/v2/competitions/CL/standings',
+      url: `http://api.football-data.org/v2/competitions/${competition}/standings`,
       dataType: 'json',
       type: 'GET',
     })
@@ -70,15 +72,22 @@ const getStandings = function () {
       let htmlString = '';
       for (const i of jsonObject.standings) {
         //console.log(i);
-        const group = i.group;
+        let group = i.group;
+        if (group == null) {
+          group = document.querySelector('.js-competition').options[document.querySelector('.js-competition').selectedIndex].text;
+        }
 
         //console.log(group);
         if (i.table.length != 0) {
-          htmlString += `<h1>${group}</h1>
+          htmlString += `<div class="c-standings">
+          <h1>${group}</h1>
         <table class="c-info">
             <tr>
+              <th class="c-team-position">
+              
+              </th>
                 <th class="c-titel-team-naam">
-
+                    
                 </th>
                 <th class="c-titel-team-played">
                     Played
@@ -105,8 +114,12 @@ const getStandings = function () {
             const played = a.playedGames;
             const team = a.team.name;
             const teamlogo = a.team.crestUrl;
+            const position = a.position;
 
             htmlString += `<tr>
+            <td class="c-position">
+                ${position}
+            </td>
             <td class="c-team">
                 <img src="${teamlogo}" alt="picture of logo from the team">
                 ${team}
@@ -128,18 +141,25 @@ const getStandings = function () {
             </td>
         </tr>`;
           }
-          htmlString += `</table>`;
+          htmlString += `</table>
+          </div>`;
         }
       }
       standings.innerHTML = htmlString;
     });
 };
 
-const getResults = function () {
+const getResults = function (competition) {
+  let url;
+  if (competition == 'CL') {
+    url = `http://api.football-data.org/v2/competitions/${competition}/matches?status=FINISHED&stage=GROUP_STAGE`;
+  } else {
+    url = `http://api.football-data.org/v2/competitions/${competition}/matches?status=FINISHED`;
+  }
   jQuery
     .ajax({
       headers: { 'X-Auth-Token': '506747d80bd74b80b0119f6b6aec04e0' },
-      url: 'http://api.football-data.org/v2/competitions/CL/matches?status=FINISHED&stage=GROUP_STAGE',
+      url: url,
       dataType: 'json',
       type: 'GET',
     })
@@ -180,11 +200,11 @@ const getResults = function () {
     });
 };
 
-const getFixtures = function () {
+const getFixtures = function (competition) {
   jQuery
     .ajax({
       headers: { 'X-Auth-Token': '506747d80bd74b80b0119f6b6aec04e0' },
-      url: 'http://api.football-data.org/v2/competitions/CL/matches?status=SCHEDULED',
+      url: `http://api.football-data.org/v2/competitions/${competition}/matches?status=SCHEDULED`,
       dataType: 'json',
       type: 'GET',
     })
@@ -231,11 +251,11 @@ const getFixtures = function () {
     });
 };
 
-const getTopScorers = function () {
+const getTopScorers = function (competition) {
   jQuery
     .ajax({
       headers: { 'X-Auth-Token': '506747d80bd74b80b0119f6b6aec04e0' },
-      url: 'http://api.football-data.org/v2/competitions/CL/scorers?limit=20',
+      url: `http://api.football-data.org/v2/competitions/${competition}/scorers?limit=20`,
       dataType: 'json',
       type: 'GET',
     })
@@ -289,12 +309,24 @@ const getTopScorers = function () {
     });
 };
 
+const listenToCompetition = function () {
+  const choices = document.querySelector('.js-competition');
+  choices.addEventListener('change', function () {
+    competition = choices.value;
+    console.log(competition);
+    getStandings(competition);
+    getResults(competition);
+    getFixtures(competition);
+    getTopScorers(competition);
+  });
+};
+
 document.addEventListener('DOMContentLoaded', function () {
   console.log('Script loaded');
-
-  getStandings();
-  getResults();
-  getFixtures();
-  getTopScorers();
+  getStandings(competition);
+  getResults(competition);
+  getFixtures(competition);
+  getTopScorers(competition);
   changeView();
+  listenToCompetition();
 });

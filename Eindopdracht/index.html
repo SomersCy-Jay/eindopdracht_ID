@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="is-night">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -8,7 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="msapplication-TileColor" content="#cce7ff">
         <meta name="theme-color" content="#cce7ff">
-        hallo
 
         <link rel="stylesheet" href="css/normale.css">
         <link rel="stylesheet" href="css/screen.css">
@@ -18,6 +17,13 @@
     </head>
     <body>
         <nav class="c-navbar">
+            <select class="js-competition" name="competition">
+                <option value="CL">Champions League</option>
+                <option value="PL">Premier League</option>
+                <option value="FL1">Ligue 1</option>
+                <option value="PD">La Liga</option>
+                <option value="SA">Serie A</option>
+            </select>
             <span class="c-nav__option js-nav--option1 is-selected">Standings</span>
             <span class="c-nav__option js-nav--option4">Results</span>
             <span class="c-nav__option js-nav--option2">Fixtures</span>
@@ -26,116 +32,118 @@
         </nav>
 
         <main class="c-app">
-            <div class="c-standings js-standings">
-                <h1>Group A</h1>
-                <table class="c-info">
-                    <tr>
-                        <th class="c-titel-team-naam">
-
-                        </th>
-                        <th class="c-titel-team-played">
-                            Played
-                        </th>
-                        <th class="c-titel-team-won">
-                            Won
-                        </th>
-                        <th class="c-titel-team-draw">
-                            Draw
-                        </th>
-                        <th class="c-titel-team-lost">
-                            Lost
-                        </th>
-                        <th class="c-titel-team-points">
-                            Points
-                        </th>
-                    </tr>
-                    <tr>
-
-                        <td class="c-team">
-                            <img src="" alt="">
-                            Bayern Munchen
-                        </td>
-                        <td class='c-team-played'>
-                            2
-                        </td>
-                        <td class="c-team-won">
-                            2
-                        </td>
-                        <td class="c-team-draw">
-                            0
-                        </td>
-                        <td class="c-team-lost">
-                            0
-                        </td>
-                        <td class="c-team-points">
-                            6
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td class="c-team">
-                            Paris-Saint-Germain FC
-                        </td>
-                        <td class='c-team-played'>
-                            2
-                        </td>
-                        <td class="c-team-won">
-                            1
-                        </td>
-                        <td class="c-team-draw">
-                            0
-                        </td>
-                        <td class="c-team-lost">
-                            1
-                        </td>
-                        <td class="c-team-points">
-                            3
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td class="c-team">
-                            FC Barcelona
-                        </td>
-                        <td class='c-team-played'>
-                            2
-                        </td>
-                        <td class="c-team-won">
-                            1
-                        </td>
-                        <td class="c-team-draw">
-                            0
-                        </td>
-                        <td class="c-team-lost">
-                            1
-                        </td>
-                        <td class="c-team-points">
-                            3
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td class="c-team">
-                            Juventus
-                        </td>
-                        <td class='c-team-played'>
-                            2
-                        </td>
-                        <td class="c-team-won">
-                            0
-                        </td>
-                        <td class="c-team-draw">
-                            0
-                        </td>
-                        <td class="c-team-lost">
-                            2
-                        </td>
-                        <td class="c-team-points">
-                            0
-                        </td>
-                    </tr>
-                    
-                </table>
+            <div class="js-standings">
+                <div class="c-standings">
+                    <h1>Group A</h1>
+                    <table class="c-info">
+                        <tr>
+                            <th class="c-titel-team-naam">
+    
+                            </th>
+                            <th class="c-titel-team-played">
+                                Played
+                            </th>
+                            <th class="c-titel-team-won">
+                                Won
+                            </th>
+                            <th class="c-titel-team-draw">
+                                Draw
+                            </th>
+                            <th class="c-titel-team-lost">
+                                Lost
+                            </th>
+                            <th class="c-titel-team-points">
+                                Points
+                            </th>
+                        </tr>
+                        <tr>
+    
+                            <td class="c-team">
+                                <img src="" alt="">
+                                Bayern Munchen
+                            </td>
+                            <td class='c-team-played'>
+                                2
+                            </td>
+                            <td class="c-team-won">
+                                2
+                            </td>
+                            <td class="c-team-draw">
+                                0
+                            </td>
+                            <td class="c-team-lost">
+                                0
+                            </td>
+                            <td class="c-team-points">
+                                6
+                            </td>
+                        </tr>
+                        <tr>
+    
+                            <td class="c-team">
+                                Paris-Saint-Germain FC
+                            </td>
+                            <td class='c-team-played'>
+                                2
+                            </td>
+                            <td class="c-team-won">
+                                1
+                            </td>
+                            <td class="c-team-draw">
+                                0
+                            </td>
+                            <td class="c-team-lost">
+                                1
+                            </td>
+                            <td class="c-team-points">
+                                3
+                            </td>
+                        </tr>
+                        <tr>
+    
+                            <td class="c-team">
+                                FC Barcelona
+                            </td>
+                            <td class='c-team-played'>
+                                2
+                            </td>
+                            <td class="c-team-won">
+                                1
+                            </td>
+                            <td class="c-team-draw">
+                                0
+                            </td>
+                            <td class="c-team-lost">
+                                1
+                            </td>
+                            <td class="c-team-points">
+                                3
+                            </td>
+                        </tr>
+                        <tr>
+    
+                            <td class="c-team">
+                                Juventus
+                            </td>
+                            <td class='c-team-played'>
+                                2
+                            </td>
+                            <td class="c-team-won">
+                                0
+                            </td>
+                            <td class="c-team-draw">
+                                0
+                            </td>
+                            <td class="c-team-lost">
+                                2
+                            </td>
+                            <td class="c-team-points">
+                                0
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </div>
             </div>
 
             <table class="c-matches js-fixtures u-hide">

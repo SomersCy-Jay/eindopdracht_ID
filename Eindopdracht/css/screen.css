@@ -4,7 +4,13 @@
   --global-navbar-color: #002239;
   --global-selected-color: #004370;
   /* opacity */
+  --global-opacity: 0.4;
   /* transitions */
+
+  --bal-animation-name: balVal;
+  --bal-animation-duration: 0.5s;
+  --bal-timing-function: ease;
+  --bal-animation-direction: forwards;
 }
 
 /*------------------------------------*\
@@ -147,6 +153,7 @@ input {
 }
 
 select {
+  max-width: 170px;
   width: 100%;
 }
 
@@ -173,6 +180,12 @@ svg {
   width: 24px;
   height: 24px;
 }
+
+/* tr:first-child {
+  color: white;
+  background: var(--global-selected-color);
+} */
+
 /* c-standing*/
 .c-standings {
   max-width: 90%;
@@ -181,28 +194,33 @@ svg {
   border: 2px solid var(--global-color);
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  opacity: var(--global-opacity);
+  animation: smooth 0.2s ease 0.1s forwards;
 }
 
 .c-team {
   text-align: left;
 }
-/* .c-titel-team-naam {
-  width: 210px;
-} */
+
+.c-team-position {
+  width: 20px;
+}
 
 .c-navbar {
   display: flex;
   justify-content: space-around;
   background-color: var(--global-navbar-color);
-  padding: 16px 0;
+  padding: 24px 0;
   margin: 0;
 }
 
 .is-selected {
   background-color: var(--global-selected-color);
-  padding: 16px 64px;
-  margin-top: -16px;
-  margin-bottom: -16px;
+  padding: 24px 0;
+  margin-top: -24px;
+  margin-bottom: -24px;
+  opacity: 0;
+  animation: smooth 0.2s ease 0.1s forwards;
 }
 
 .c-nav__option {
@@ -220,10 +238,14 @@ svg {
   border-collapse: collapse;
 }
 
+.c-match:nth-child(even) {
+  background-color: rgb(241, 241, 241);
+}
+
 .c-match,
 .c-player {
   border-bottom: 1px solid rgba(8, 8, 8, 0.15);
-  opacity: 0.4;
+  opacity: var(--global-opacity);
   animation: smooth 0.2s ease 0.1s forwards;
 }
 
@@ -236,28 +258,28 @@ svg {
 }
 
 .c-bal0 {
-  animation: balVal 0.5s ease 0s forwards;
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 0s var(--bal-animation-direction);
 }
 .c-bal1 {
-  animation: balVal 0.5s ease 0.2s forwards;
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 0.2s var(--bal-animation-direction);
 }
 .c-bal2 {
-  animation: balVal 0.5s ease 0.4s forwards;
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 0.4s var(--bal-animation-direction);
 }
 .c-bal3 {
-  animation: balVal 0.5s ease 0.6s forwards;
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 0.6s var(--bal-animation-direction);
 }
 .c-bal4 {
-  animation: balVal 0.5s ease 0.8s forwards;
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 0.8s var(--bal-animation-direction);
 }
 .c-bal5 {
-  animation: balVal 0.5s ease 1s forwards;
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 1s var(--bal-animation-direction);
 }
 .c-bal6 {
-  animation: balVal 0.5s ease 1.2s forwards;
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 1.2s var(--bal-animation-direction);
 }
 .c-bal7 {
-  animation: balVal 0.5s ease 1.4s forwards;
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 1.4s var(--bal-animation-direction);
 }
 
 @keyframes smooth {
