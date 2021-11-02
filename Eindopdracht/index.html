@@ -14,21 +14,29 @@
         
         <script src="script/app.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
     </head>
     <body>
         <nav class="c-navbar">
-            <select class="js-competition" name="competition">
+            <select class="js-competition c-select-competition" name="competition">
                 <option value="CL">Champions League</option>
                 <option value="PL">Premier League</option>
                 <option value="FL1">Ligue 1</option>
                 <option value="PD">La Liga</option>
                 <option value="SA">Serie A</option>
             </select>
-            <span class="c-nav__option js-nav--option1 is-selected">Standings</span>
-            <span class="c-nav__option js-nav--option4">Results</span>
-            <span class="c-nav__option js-nav--option2">Fixtures</span>
-            
-            <span class="c-nav__option js-nav--option3">TopScorers</span>
+            <span class="c-nav__option js-nav--option1 u-bigger-screen is-selected">Standings</span>
+            <span class="c-nav__option js-nav--option4 u-bigger-screen">Results</span>
+            <span class="c-nav__option js-nav--option2 u-bigger-screen">Fixtures</span>
+            <span class="c-nav__option js-nav--option3 u-bigger-screen">TopScorers</span>
+
+            <div class="c-header__mobile-nav-trigger">
+                <button class="o-button-reset c-nav-trigger js-toggle-nav">
+                    <svg class="c-nav-trigger__svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </button>
+            </div>
         </nav>
 
         <main class="c-app">
@@ -37,25 +45,28 @@
                     <h1>Group A</h1>
                     <table class="c-info">
                         <tr>
-                            <th class="c-titel-team-naam">
-    
+                            <th class="c-team-position">
+                            
                             </th>
-                            <th class="c-titel-team-played">
-                                Played
-                            </th>
-                            <th class="c-titel-team-won">
-                                Won
-                            </th>
-                            <th class="c-titel-team-draw">
-                                Draw
-                            </th>
-                            <th class="c-titel-team-lost">
-                                Lost
-                            </th>
-                            <th class="c-titel-team-points">
-                                Points
-                            </th>
-                        </tr>
+                              <th class="c-titel-team-naam">
+                                  
+                              </th>
+                              <th class="c-titel-team-played js-played">
+                                  Played
+                              </th>
+                              <th class="c-titel-team-won js-won">
+                                  Won
+                              </th>
+                              <th class="c-titel-team-draw js-draw">
+                                  Draw
+                              </th>
+                              <th class="c-titel-team-lost js-lost">
+                                  Lost
+                              </th>
+                              <th class="c-titel-team-points js-points">
+                                  Points
+                              </th>
+                          </tr>
                         <tr>
     
                             <td class="c-team">
@@ -265,7 +276,39 @@
                 </tr>
             </table>
             
+
+            <aside class="c-mobile-nav">
+                <div class="c-mobile-nav__bg"></div>
+                <div class="c-mobile-nav__body">
+                    <div class="c-mobile-nav__header">
+                        <button class="o-button-reset c-nav-trigger js-toggle-nav">
+                            <svg class="c-nav-trigger__svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="c-mobile-nav__nav c-mobile-nav__nav--main">
+                        <nav class="c-navbar-mobile">
+                            <span class="c-nav__option-mobile js-nav--option1 ">Standings</span>
+                            <span class="c-nav__option-mobile js-nav--option4 ">Results</span>
+                            <span class="c-nav__option-mobile js-nav--option2 ">Fixtures</span>
+                            <span class="c-nav__option-mobile js-nav--option3 ">TopScorers</span>
+                        </nav>
+                    </div>
+                    <!-- <div class="c-mobile-nav__nav">
+                        <nav class="c-nav c-nav--meta">
+                            <ul class="o-list c-nav__list">
+                                <li class="c-nav__item"><a href="#!" class="c-nav__link c-nav__link--meta">Careers</a></li>
+                                <li class="c-nav__item"><a href="#!" class="c-nav__link c-nav__link--meta">Blog</a></li>
+                                <li class="c-nav__item"><a href="#!" class="c-nav__link c-nav__link--meta">About</a></li>
+                            </ul>
+                        </nav>
+                    </div> -->
+                </div>
+            </aside>
+
         </main>
         
+
 	</body>
 </html>

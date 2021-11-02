@@ -181,6 +181,10 @@ svg {
   height: 24px;
 }
 
+span {
+  display: block;
+}
+
 /* tr:first-child {
   color: white;
   background: var(--global-selected-color);
@@ -196,10 +200,15 @@ svg {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
   opacity: var(--global-opacity);
   animation: smooth 0.2s ease 0.1s forwards;
+  background-color: rgb(245, 244, 247);
 }
 
 .c-team {
   text-align: left;
+}
+
+.c-titel-team-naam {
+  width: 300px;
 }
 
 .c-team-position {
@@ -220,12 +229,21 @@ svg {
   margin-top: -24px;
   margin-bottom: -24px;
   opacity: 0;
-  animation: smooth 0.2s ease 0.1s forwards;
+  animation: change 0.4s ease 0.1s forwards;
 }
 
 .c-nav__option {
   font-size: 18px;
   color: white;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.c-nav__option-mobile {
+  font-size: 18px;
+  color: black;
+  padding: 8px 8px;
+  margin-bottom: 16px;
 }
 
 .c-nav__option:hover {
@@ -247,6 +265,10 @@ svg {
   border-bottom: 1px solid rgba(8, 8, 8, 0.15);
   opacity: var(--global-opacity);
   animation: smooth 0.2s ease 0.1s forwards;
+}
+
+.c-select-competition {
+  margin-right: -20px;
 }
 
 .u-hide {
@@ -282,6 +304,69 @@ svg {
   animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 1.4s var(--bal-animation-direction);
 }
 
+.c-app {
+  position: relative;
+  will-change: transform;
+  transition: transform 0.25s ease;
+}
+
+/* .has-mobile-nav .c-app {
+  transform: translateX(25%);
+} */
+
+.c-mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+  /*opacity: 0; */
+  pointer-events: none;
+  /*transition: opacity 0.25s;*/
+  transition: opacity 0.25s ease;
+}
+
+.has-mobile-nav .c-mobile-nav {
+  /*opacity: 1;*/
+  pointer-events: auto;
+}
+
+.c-mobile-nav__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.c-mobile-nav__bg {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #202024;
+  transition: opacity 0.25s ease;
+}
+
+.has-mobile-nav .c-mobile-nav__bg {
+  opacity: 0.5;
+}
+
+.c-mobile-nav__body {
+  position: relative;
+  padding: 24px;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+}
+
+.has-mobile-nav .c-mobile-nav__body {
+  transform: translateX(0);
+}
+
 @keyframes smooth {
   60% {
     opacity: 0.6;
@@ -315,5 +400,65 @@ svg {
   }
   100% {
     transform: translateY(8px);
+  }
+}
+
+@keyframes change {
+  10% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1250px) {
+  .c-nav__option {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .c-nav__option {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 950px) {
+  .c-nav__option {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 850px) {
+  .c-header__mobile-nav-trigger {
+    display: none;
+  }
+  .c-mobile-nav {
+    display: none !important;
+  }
+}
+
+@media (max-width: 850px) {
+  .u-bigger-screen {
+    display: none;
   }
 }

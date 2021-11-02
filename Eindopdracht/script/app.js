@@ -1,60 +1,125 @@
 let competition = 'CL';
 
+window.addEventListener('resize', function () {
+  if (screen.width <= 700) {
+    console.log('kleiner dan 700');
+    // MET EEN FOR MAKEN DAT HET ELKE QUERY VERANDERD (WANT cl werkte niet)
+    this.document.querySelectorAll('.js-played').innerHTML = 'P';
+    this.document.querySelectorAll('.js-won').innerHTML = 'W';
+    this.document.querySelectorAll('.js-draw').innerHTML = 'D';
+    this.document.querySelectorAll('.js-lost').innerHTML = 'L';
+    this.document.querySelectorAll('.js-points').innerHTML = 'Pts';
+  } else {
+    this.document.querySelectorAll('.js-played').innerHTML = 'Points';
+    this.document.querySelectorAll('.js-won').innerHTML = 'Won';
+    this.document.querySelectorAll('.js-draw').innerHTML = 'Draw';
+    this.document.querySelectorAll('.js-lost').innerHTML = 'Lost';
+    this.document.querySelectorAll('.js-points').innerHTML = 'Points';
+  }
+});
+
+const toggleNav = function () {
+  let toggleTrigger = document.querySelectorAll('.js-toggle-nav');
+  for (let i = 0; i < toggleTrigger.length; i++) {
+    toggleTrigger[i].addEventListener('click', function () {
+      document.querySelector('body').classList.toggle('has-mobile-nav');
+    });
+  }
+};
+
 const changeView = function () {
-  const standings = document.querySelector('.js-nav--option1');
-  const matches = document.querySelector('.js-nav--option2');
-  const topscorers = document.querySelector('.js-nav--option3');
+  const standings = document.querySelectorAll('.js-nav--option1');
+  const matches = document.querySelectorAll('.js-nav--option2');
+  const topscorers = document.querySelectorAll('.js-nav--option3');
   const tableStandings = document.querySelector('.js-standings');
   const tableMatches = document.querySelector('.js-fixtures');
   const tableTopscorers = document.querySelector('.js-topscorers');
-  const results = document.querySelector('.js-nav--option4');
+  const results = document.querySelectorAll('.js-nav--option4');
   const tableResults = document.querySelector('.js-results');
 
-  standings.addEventListener('click', function () {
-    matches.classList.remove('is-selected');
-    topscorers.classList.remove('is-selected');
-    results.classList.remove('is-selected');
-    standings.classList.add('is-selected');
+  for (const btn of standings) {
+    btn.addEventListener('click', function () {
+      document.querySelector('body').classList.remove('has-mobile-nav');
+      for (const b of matches) {
+        b.classList.remove('is-selected');
+      }
+      for (const b of topscorers) {
+        b.classList.remove('is-selected');
+      }
+      for (const b of results) {
+        b.classList.remove('is-selected');
+      }
+      btn.classList.add('is-selected');
 
-    tableMatches.classList.add('u-hide');
-    tableTopscorers.classList.add('u-hide');
-    tableResults.classList.add('u-hide');
-    tableStandings.classList.remove('u-hide');
-  });
-  matches.addEventListener('click', function () {
-    topscorers.classList.remove('is-selected');
-    standings.classList.remove('is-selected');
-    results.classList.remove('is-selected');
-    matches.classList.add('is-selected');
+      tableMatches.classList.add('u-hide');
+      tableTopscorers.classList.add('u-hide');
+      tableResults.classList.add('u-hide');
+      tableStandings.classList.remove('u-hide');
+    });
+  }
 
-    tableTopscorers.classList.add('u-hide');
-    tableStandings.classList.add('u-hide');
-    tableResults.classList.add('u-hide');
-    tableMatches.classList.remove('u-hide');
-  });
-  topscorers.addEventListener('click', function () {
-    standings.classList.remove('is-selected');
-    matches.classList.remove('is-selected');
-    results.classList.remove('is-selected');
-    topscorers.classList.add('is-selected');
+  for (const btn of matches) {
+    btn.addEventListener('click', function () {
+      document.querySelector('body').classList.remove('has-mobile-nav');
+      for (const b of standings) {
+        b.classList.remove('is-selected');
+      }
+      for (const b of topscorers) {
+        b.classList.remove('is-selected');
+      }
+      for (const b of results) {
+        b.classList.remove('is-selected');
+      }
+      btn.classList.add('is-selected');
 
-    tableStandings.classList.add('u-hide');
-    tableMatches.classList.add('u-hide');
-    tableResults.classList.add('u-hide');
-    tableTopscorers.classList.remove('u-hide');
-  });
+      tableTopscorers.classList.add('u-hide');
+      tableStandings.classList.add('u-hide');
+      tableResults.classList.add('u-hide');
+      tableMatches.classList.remove('u-hide');
+    });
+  }
 
-  results.addEventListener('click', function () {
-    matches.classList.remove('is-selected');
-    topscorers.classList.remove('is-selected');
-    standings.classList.remove('is-selected');
-    results.classList.add('is-selected');
+  for (const btn of topscorers) {
+    btn.addEventListener('click', function () {
+      document.querySelector('body').classList.remove('has-mobile-nav');
+      for (const b of matches) {
+        b.classList.remove('is-selected');
+      }
+      for (const b of standings) {
+        b.classList.remove('is-selected');
+      }
+      for (const b of results) {
+        b.classList.remove('is-selected');
+      }
+      btn.classList.add('is-selected');
 
-    tableStandings.classList.add('u-hide');
-    tableMatches.classList.add('u-hide');
-    tableTopscorers.classList.add('u-hide');
-    tableResults.classList.remove('u-hide');
-  });
+      tableStandings.classList.add('u-hide');
+      tableMatches.classList.add('u-hide');
+      tableResults.classList.add('u-hide');
+      tableTopscorers.classList.remove('u-hide');
+    });
+  }
+
+  for (const btn of results) {
+    btn.addEventListener('click', function () {
+      document.querySelector('body').classList.remove('has-mobile-nav');
+      for (const b of matches) {
+        b.classList.remove('is-selected');
+      }
+      for (const b of topscorers) {
+        b.classList.remove('is-selected');
+      }
+      for (const b of standings) {
+        b.classList.remove('is-selected');
+      }
+      btn.classList.add('is-selected');
+
+      tableStandings.classList.add('u-hide');
+      tableMatches.classList.add('u-hide');
+      tableTopscorers.classList.add('u-hide');
+      tableResults.classList.remove('u-hide');
+    });
+  }
 };
 
 const getStandings = function (competition) {
@@ -89,19 +154,19 @@ const getStandings = function (competition) {
                 <th class="c-titel-team-naam">
                     
                 </th>
-                <th class="c-titel-team-played">
+                <th class="c-titel-team-played js-played">
                     Played
                 </th>
-                <th class="c-titel-team-won">
+                <th class="c-titel-team-won js-won">
                     Won
                 </th>
-                <th class="c-titel-team-draw">
+                <th class="c-titel-team-draw js-draw">
                     Draw
                 </th>
-                <th class="c-titel-team-lost">
+                <th class="c-titel-team-lost js-lost">
                     Lost
                 </th>
-                <th class="c-titel-team-points">
+                <th class="c-titel-team-points js-points">
                     Points
                 </th>
             </tr>`;
@@ -323,6 +388,7 @@ const listenToCompetition = function () {
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log('Script loaded');
+  toggleNav();
   getStandings(competition);
   getResults(competition);
   getFixtures(competition);
