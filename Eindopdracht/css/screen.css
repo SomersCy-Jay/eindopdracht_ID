@@ -240,10 +240,10 @@ span {
 }
 
 .c-nav__option-mobile {
+  border-bottom: 1px solid transparent;
+  border-bottom-width: 16px;
   font-size: 18px;
   color: black;
-  padding: 8px 8px;
-  margin-bottom: 16px;
 }
 
 .c-nav__option:hover {
@@ -367,6 +367,22 @@ span {
   transform: translateX(0);
 }
 
+.c-nav-trigger {
+  border: 2px solid rgb(224, 217, 253);
+  background-color: var(--global-navbar-color);
+}
+
+.c-nav-trigger__svg {
+  margin-top: 2px;
+  fill: white;
+}
+
+.c-select-competition {
+  border: 1px solid rgb(224, 217, 253);
+  color: white;
+  background-color: var(--global-navbar-color);
+}
+
 @keyframes smooth {
   60% {
     opacity: 0.6;
@@ -457,8 +473,64 @@ span {
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 849px) {
   .u-bigger-screen {
     display: none;
+  }
+
+  .c-header__mobile-nav-trigger {
+    margin-left: 40%;
+  }
+
+  .is-selected {
+    background: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0 0;
+    animation: change 0.4s ease 0.1s forwards;
+  }
+}
+
+@media (max-width: 550px) {
+  .c-titel-team-draw,
+  .c-titel-team-lost,
+  .c-team-draw,
+  .c-team-lost {
+    display: none;
+  }
+
+  .c-header__mobile-nav-trigger {
+    margin-left: 30%;
+  }
+
+  .c-titel-team-naam {
+    width: 250px;
+  }
+
+  .c-hour {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .c-titel-team-won,
+  .c-team-won {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .c-titel-team-played,
+  .c-team-played {
+    display: none;
+  }
+
+  .c-header__mobile-nav-trigger {
+    margin-left: 20%;
+  }
+}
+
+@media (max-width: 355px) {
+  .c-titel-team-naam {
+    width: 150px;
   }
 }

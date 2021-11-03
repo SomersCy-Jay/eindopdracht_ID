@@ -1,22 +1,64 @@
 let competition = 'CL';
 
-window.addEventListener('resize', function () {
-  if (screen.width <= 700) {
+const changeTable = function (width) {
+  const playeds = this.document.querySelectorAll('.js-played');
+  const wons = this.document.querySelectorAll('.js-won');
+  const draws = this.document.querySelectorAll('.js-draw');
+  const losts = this.document.querySelectorAll('.js-lost');
+  const points = this.document.querySelectorAll('.js-points');
+
+  if (width < 700) {
     console.log('kleiner dan 700');
-    // MET EEN FOR MAKEN DAT HET ELKE QUERY VERANDERD (WANT cl werkte niet)
-    this.document.querySelectorAll('.js-played').innerHTML = 'P';
-    this.document.querySelectorAll('.js-won').innerHTML = 'W';
-    this.document.querySelectorAll('.js-draw').innerHTML = 'D';
-    this.document.querySelectorAll('.js-lost').innerHTML = 'L';
-    this.document.querySelectorAll('.js-points').innerHTML = 'Pts';
+
+    for (const p of playeds) {
+      p.innerHTML = 'P';
+    }
+
+    for (const w of wons) {
+      w.innerHTML = 'W';
+    }
+
+    for (const d of draws) {
+      d.innerHTML = 'D';
+    }
+
+    for (const l of losts) {
+      l.innerHTML = 'L';
+    }
+
+    for (const pts of points) {
+      pts.innerHTML = 'Pts';
+    }
   } else {
-    this.document.querySelectorAll('.js-played').innerHTML = 'Points';
-    this.document.querySelectorAll('.js-won').innerHTML = 'Won';
-    this.document.querySelectorAll('.js-draw').innerHTML = 'Draw';
-    this.document.querySelectorAll('.js-lost').innerHTML = 'Lost';
-    this.document.querySelectorAll('.js-points').innerHTML = 'Points';
+    for (const p of playeds) {
+      p.innerHTML = 'Played';
+    }
+    for (const w of wons) {
+      w.innerHTML = 'Won';
+    }
+
+    for (const d of draws) {
+      d.innerHTML = 'Draw';
+    }
+
+    for (const l of losts) {
+      l.innerHTML = 'Lost';
+    }
+
+    for (const pts of points) {
+      pts.innerHTML = 'Points';
+    }
   }
+};
+
+window.addEventListener('resize', function () {
+  changeTable(window.innerWidth);
 });
+
+console.log(window.innerWidth);
+if (window.innerWidth < 700) {
+  changeTable(window.innerWidth);
+}
 
 const toggleNav = function () {
   let toggleTrigger = document.querySelectorAll('.js-toggle-nav');
