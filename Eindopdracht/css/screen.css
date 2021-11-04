@@ -246,6 +246,11 @@ span {
   color: black;
 }
 
+.c-nav__option-mobile:hover {
+  color: #dbd6d6;
+  cursor: pointer;
+}
+
 .c-nav__option:hover {
   color: #dbd6d6;
   cursor: pointer;
