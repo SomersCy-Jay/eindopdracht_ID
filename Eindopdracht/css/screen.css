@@ -3,14 +3,24 @@
   --global-color: #013e67;
   --global-navbar-color: #002239;
   --global-selected-color: #004370;
+  --global-hover-color: #dbd6d6;
   /* opacity */
   --global-opacity: 0.4;
   /* transitions */
 
   --bal-animation-name: balVal;
   --bal-animation-duration: 0.5s;
-  --bal-timing-function: ease;
+  --global-timing-function: ease;
   --bal-animation-direction: forwards;
+
+  --global-border-width: 1px;
+  --global-border-style: solid;
+
+  --global-padding: 24px;
+
+  --global-font-size: 18px;
+
+  --global-display-hide: none;
 }
 
 /*------------------------------------*\
@@ -26,7 +36,7 @@
 html {
   font-size: 16px;
   line-height: 1.5;
-  font-family: 'Work Sans', sans-serif;
+  font-family: nunito-sans, 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -97,7 +107,7 @@ figure {
 
 ul,
 ol {
-  padding-left: 24px;
+  padding-left: var(--global-padding);
 }
 
 li ul,
@@ -132,7 +142,7 @@ hr {
 }
 
 a {
-  font-size: 18px;
+  font-size: var(--global-font-size);
   color: white;
   text-decoration: none;
 }
@@ -144,7 +154,7 @@ a:active {
 
 a:hover,
 a:focus {
-  color: #dbd6d6;
+  color: var(--global-hover-color);
 }
 
 label,
@@ -168,9 +178,10 @@ table {
   padding-bottom: 16px;
 }
 td {
-  font-size: 18px;
+  font-size: var(--global-font-size);
   text-align: center;
   padding-bottom: 8px;
+  padding-top: 8px;
 }
 th {
   padding-bottom: 16px;
@@ -195,11 +206,11 @@ span {
   max-width: 90%;
   /* background-color: rgb(248, 248, 248); */
   margin: 32px auto;
-  border: 2px solid var(--global-color);
+  border: 2px var(--global-border-style) var(--global-color);
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
   opacity: var(--global-opacity);
-  animation: smooth 0.2s ease 0.1s forwards;
+  animation: smooth 0.2s var(--global-timing-function) 0.1s forwards;
   background-color: rgb(245, 244, 247);
 }
 
@@ -219,40 +230,40 @@ span {
   display: flex;
   justify-content: space-around;
   background-color: var(--global-navbar-color);
-  padding: 24px 0;
+  padding: var(--global-padding) 0;
   margin: 0;
 }
 
 .is-selected {
   background-color: var(--global-selected-color);
-  padding: 24px 0;
+  padding: var(--global-padding) 0;
   margin-top: -24px;
   margin-bottom: -24px;
   opacity: 0;
-  animation: change 0.4s ease 0.1s forwards;
+  animation: change 0.4s var(--global-timing-function) 0.1s forwards;
 }
 
 .c-nav__option {
-  font-size: 18px;
+  font-size: var(--global-font-size);
   color: white;
   padding-left: 80px;
   padding-right: 80px;
 }
 
 .c-nav__option-mobile {
-  border-bottom: 1px solid transparent;
+  border-bottom: var(--global-border-width) var(--global-border-style) transparent;
   border-bottom-width: 16px;
-  font-size: 18px;
+  font-size: var(--global-font-size);
   color: black;
 }
 
 .c-nav__option-mobile:hover {
-  color: #dbd6d6;
+  color: var(--global-hover-color);
   cursor: pointer;
 }
 
 .c-nav__option:hover {
-  color: #dbd6d6;
+  color: var(--global-hover-color);
   cursor: pointer;
 }
 
@@ -267,9 +278,9 @@ span {
 
 .c-match,
 .c-player {
-  border-bottom: 1px solid rgba(8, 8, 8, 0.15);
+  border-bottom: var(--global-border-width) var(--global-border-style) rgba(8, 8, 8, 0.15);
   opacity: var(--global-opacity);
-  animation: smooth 0.2s ease 0.1s forwards;
+  animation: smooth 0.2s var(--global-timing-function) 0.1s forwards;
 }
 
 .c-select-competition {
@@ -277,42 +288,42 @@ span {
 }
 
 .u-hide {
-  display: none;
+  display: var(--global-display-hide);
 }
 
 .c-bal {
-  animation: balBounce 0.8s ease 0.1s forwards;
+  animation: balBounce 0.8s var(--global-timing-function) 0.1s forwards;
 }
 
 .c-bal0 {
-  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 0s var(--bal-animation-direction);
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--global-timing-function) 0s var(--bal-animation-direction);
 }
 .c-bal1 {
-  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 0.2s var(--bal-animation-direction);
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--global-timing-function) 0.2s var(--bal-animation-direction);
 }
 .c-bal2 {
-  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 0.4s var(--bal-animation-direction);
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--global-timing-function) 0.4s var(--bal-animation-direction);
 }
 .c-bal3 {
-  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 0.6s var(--bal-animation-direction);
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--global-timing-function) 0.6s var(--bal-animation-direction);
 }
 .c-bal4 {
-  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 0.8s var(--bal-animation-direction);
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--global-timing-function) 0.8s var(--bal-animation-direction);
 }
 .c-bal5 {
-  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 1s var(--bal-animation-direction);
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--global-timing-function) 1s var(--bal-animation-direction);
 }
 .c-bal6 {
-  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 1.2s var(--bal-animation-direction);
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--global-timing-function) 1.2s var(--bal-animation-direction);
 }
 .c-bal7 {
-  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--bal-timing-function) 1.4s var(--bal-animation-direction);
+  animation: var(--bal-animation-name) var(--bal-animation-duration) var(--global-timing-function) 1.4s var(--bal-animation-direction);
 }
 
 .c-app {
   position: relative;
   will-change: transform;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s var(--global-timing-function);
 }
 
 /* .has-mobile-nav .c-app {
@@ -328,7 +339,7 @@ span {
   /*opacity: 0; */
   pointer-events: none;
   /*transition: opacity 0.25s;*/
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s var(--global-timing-function);
 }
 
 .has-mobile-nav .c-mobile-nav {
@@ -351,7 +362,7 @@ span {
   bottom: 0;
   left: 0;
   background-color: #202024;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s var(--global-timing-function);
 }
 
 .has-mobile-nav .c-mobile-nav__bg {
@@ -360,12 +371,12 @@ span {
 
 .c-mobile-nav__body {
   position: relative;
-  padding: 24px;
+  padding: var(--global-padding);
   height: 100vh;
   width: 100vw;
   background-color: #fff;
   transform: translateX(-100%);
-  transition: transform 0.25s ease;
+  transition: transform 0.25s var(--global-timing-function);
 }
 
 .has-mobile-nav .c-mobile-nav__body {
@@ -373,7 +384,7 @@ span {
 }
 
 .c-nav-trigger {
-  border: 2px solid rgb(224, 217, 253);
+  border: 2px var(--global-border-style) rgb(224, 217, 253);
   background-color: var(--global-navbar-color);
 }
 
@@ -383,7 +394,7 @@ span {
 }
 
 .c-select-competition {
-  border: 1px solid rgb(224, 217, 253);
+  border: var(--global-border-width) var(--global-border-style) rgb(224, 217, 253);
   color: white;
   background-color: var(--global-navbar-color);
 }
@@ -471,16 +482,16 @@ span {
 
 @media (min-width: 850px) {
   .c-header__mobile-nav-trigger {
-    display: none;
+    display: var(--global-display-hide);
   }
   .c-mobile-nav {
-    display: none !important;
+    display: var(--global-display-hide) !important;
   }
 }
 
 @media (max-width: 849px) {
   .u-bigger-screen {
-    display: none;
+    display: var(--global-display-hide);
   }
 
   .c-header__mobile-nav-trigger {
@@ -492,7 +503,7 @@ span {
     margin-bottom: 0;
     margin-top: 0;
     padding: 0 0;
-    animation: change 0.4s ease 0.1s forwards;
+    animation: change 0.4s var(--global-timing-function) 0.1s forwards;
   }
 }
 
@@ -501,7 +512,7 @@ span {
   .c-titel-team-lost,
   .c-team-draw,
   .c-team-lost {
-    display: none;
+    display: var(--global-display-hide);
   }
 
   .c-header__mobile-nav-trigger {
@@ -513,20 +524,20 @@ span {
   }
 
   .c-hour {
-    display: none;
+    display: var(--global-display-hide);
   }
 }
 @media (max-width: 480px) {
   .c-titel-team-won,
   .c-team-won {
-    display: none;
+    display: var(--global-display-hide);
   }
 }
 
 @media (max-width: 400px) {
   .c-titel-team-played,
   .c-team-played {
-    display: none;
+    display: var(--global-display-hide);
   }
 
   .c-header__mobile-nav-trigger {

@@ -362,7 +362,7 @@ const getTopScorers = function (competition) {
   jQuery
     .ajax({
       headers: { 'X-Auth-Token': '506747d80bd74b80b0119f6b6aec04e0' },
-      url: `http://api.football-data.org/v2/competitions/${competition}/scorers?limit=20`,
+      url: `http://api.football-data.org/v2/competitions/${competition}/scorers`,
       dataType: 'json',
       type: 'GET',
     })
