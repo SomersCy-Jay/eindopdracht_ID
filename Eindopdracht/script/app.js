@@ -8,8 +8,6 @@ const changeTable = function (width) {
   const points = this.document.querySelectorAll('.js-points');
 
   if (width < 700) {
-    console.log('kleiner dan 700');
-
     for (const p of playeds) {
       p.innerHTML = 'P';
     }
@@ -52,7 +50,7 @@ const changeTable = function (width) {
 };
 
 window.addEventListener('resize', function () {
-  checkWidth(window.innerWidth);
+  changeTable(window.innerWidth);
 });
 
 const checkWidth = function () {
