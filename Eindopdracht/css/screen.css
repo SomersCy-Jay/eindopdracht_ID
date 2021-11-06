@@ -21,6 +21,11 @@
   --global-font-size: 18px;
 
   --global-display-hide: none;
+
+  --global-box-shadow-color: rgba(0, 0, 0, 0.2);
+  --global-bs-color-h-v-blur-spread2: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
+  --global-bs-color-h-v-blur-spread3: rgba(255, 255, 255, 0.05) 0px 0px 0px 1px;
+  --global-box-shadow-inset: inset;
 }
 
 /*------------------------------------*\
@@ -180,8 +185,8 @@ table {
 td {
   font-size: var(--global-font-size);
   text-align: center;
-  padding-bottom: 8px;
-  padding-top: 8px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 th {
   padding-bottom: 16px;
@@ -208,7 +213,7 @@ span {
   margin: 32px auto;
   border: 2px var(--global-border-style) var(--global-color);
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  box-shadow: var(--global-box-shadow-color) 0px 12px 28px 0px, var(--global-bs-color-h-v-blur-spread2), var(--global-bs-color-h-v-blur-spread3) var(--global-box-shadow-inset);
   opacity: var(--global-opacity);
   animation: smooth 0.2s var(--global-timing-function) 0.1s forwards;
   background-color: rgb(245, 244, 247);
@@ -280,9 +285,16 @@ span {
   background-color: rgb(241, 241, 241);
 }
 
-.c-match,
+.c-match {
+  border-bottom: var(--global-border-width) var(--global-border-style) rgba(8, 8, 8, 0.15);
+  box-shadow: var(--global-box-shadow-color) 0px 2px 12px 0px, var(--global-bs-color-h-v-blur-spread2), var(--global-bs-color-h-v-blur-spread3) var(--global-box-shadow-inset);
+  opacity: var(--global-opacity);
+  animation: smooth 0.2s var(--global-timing-function) 0.1s forwards;
+}
+
 .c-player {
   border-bottom: var(--global-border-width) var(--global-border-style) rgba(8, 8, 8, 0.15);
+  box-shadow: var(--global-box-shadow-color) 0px 1px 3px 0px, var(--global-bs-color-h-v-blur-spread2), var(--global-bs-color-h-v-blur-spread3) var(--global-box-shadow-inset);
   opacity: var(--global-opacity);
   animation: smooth 0.2s var(--global-timing-function) 0.1s forwards;
 }
