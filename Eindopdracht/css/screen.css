@@ -227,11 +227,15 @@ span {
 }
 
 .c-navbar {
+  z-index: 1;
   display: flex;
   justify-content: space-around;
   background-color: var(--global-navbar-color);
   padding: var(--global-padding) 0;
   margin: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .is-selected {
@@ -321,14 +325,12 @@ span {
 }
 
 .c-app {
+  z-index: 0;
+  margin-top: 108px;
   position: relative;
   will-change: transform;
   transition: transform 0.25s var(--global-timing-function);
 }
-
-/* .has-mobile-nav .c-app {
-  transform: translateX(25%);
-} */
 
 .c-mobile-nav {
   position: fixed;

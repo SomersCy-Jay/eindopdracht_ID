@@ -52,13 +52,14 @@ const changeTable = function (width) {
 };
 
 window.addEventListener('resize', function () {
-  changeTable(window.innerWidth);
+  checkWidth(window.innerWidth);
 });
 
-console.log(window.innerWidth);
-if (window.innerWidth < 700) {
-  changeTable(window.innerWidth);
-}
+const checkWidth = function () {
+  if (window.innerWidth < 700) {
+    changeTable(window.innerWidth);
+  }
+};
 
 const toggleNav = function () {
   let toggleTrigger = document.querySelectorAll('.js-toggle-nav');
@@ -253,6 +254,7 @@ const getStandings = function (competition) {
         }
       }
       standings.innerHTML = htmlString;
+      checkWidth();
     });
 };
 
