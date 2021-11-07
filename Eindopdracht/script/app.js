@@ -7,7 +7,7 @@ const changeTable = function (width) {
   const losts = this.document.querySelectorAll('.js-lost');
   const points = this.document.querySelectorAll('.js-points');
 
-  if (width < 700) {
+  if (width < 750) {
     for (const p of playeds) {
       p.innerHTML = 'P';
     }
