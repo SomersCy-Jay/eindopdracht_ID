@@ -172,18 +172,18 @@ const getStandings = function (competition) {
       type: 'GET',
     })
     .done(function (jsonObject) {
-      //console.log(jsonObject);
-
       let standings = document.querySelector('.js-standings');
       let htmlString = '';
       for (const i of jsonObject.standings) {
-        //console.log(i);
         let group = i.group;
+        if (group != null) {
+          group = group.replaceAll('_', ' ');
+        }
+
         if (group == null) {
           group = document.querySelector('.js-competition').options[document.querySelector('.js-competition').selectedIndex].text;
         }
 
-        //console.log(group);
         if (i.table.length != 0) {
           htmlString += `<div class="c-standings">
           <h1>${group}</h1>
@@ -211,7 +211,7 @@ const getStandings = function (competition) {
                     Points
                 </th>
             </tr>`;
-          //console.log(group);
+
           for (const a of i.table) {
             const won = a.won;
             const draw = a.draw;
@@ -328,7 +328,7 @@ const getFixtures = function (competition) {
           Date
       </th>
       <th class="c-hour">
-          hour
+          Hour
       </th>
   </tr>`;
 
@@ -362,13 +362,11 @@ const getTopScorers = function (competition) {
   jQuery
     .ajax({
       headers: { 'X-Auth-Token': '506747d80bd74b80b0119f6b6aec04e0' },
-      url: `http://api.football-data.org/v2/competitions/${competition}/scorers`,
+      url: `http://api.football-data.org/v2/competitions/${competition}/scorers?limit=20`,
       dataType: 'json',
       type: 'GET',
     })
     .done(function (jsonObject) {
-      console.log(jsonObject);
-
       let topscorers = document.querySelector('.js-topscorers');
       let htmlString = `<tr>
       <th class="c-player-name">
@@ -378,7 +376,7 @@ const getTopScorers = function (competition) {
           Team
       </th>
       <th class="c-goals">
-          goals   
+          Goals   
       </th>
   </tr>`;
 
@@ -420,7 +418,6 @@ const listenToCompetition = function () {
   const choices = document.querySelector('.js-competition');
   choices.addEventListener('change', function () {
     competition = choices.value;
-    console.log(competition);
     getStandings(competition);
     getResults(competition);
     getFixtures(competition);
@@ -429,7 +426,6 @@ const listenToCompetition = function () {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('Script loaded');
   toggleNav();
   getStandings(competition);
   getResults(competition);
