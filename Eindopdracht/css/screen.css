@@ -4,6 +4,7 @@
   --global-navbar-color: #002239;
   --global-selected-color: #004370;
   --global-hover-color: #dbd6d6;
+  --global-title-color: #02021d;
   /* opacity */
   --global-opacity: 0.4;
   /* transitions */
@@ -177,7 +178,7 @@ input::placeholder {
 }
 
 table {
-  margin: 32px auto;
+  margin: 0px auto 16px;
   width: 95%;
   table-layout: fixed;
   padding-bottom: 16px;
@@ -191,6 +192,7 @@ td {
 th {
   font-size: 20px;
   padding-bottom: 16px;
+  color: var(--global-title-color);
 }
 
 svg {
@@ -234,10 +236,11 @@ span {
 
 .c-navbar {
   z-index: 1;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 250px repeat(4, 1fr);
+  text-align: center;
   background-color: var(--global-navbar-color);
-  padding: var(--global-padding) 0;
+  padding: var(--global-padding) 16px;
   margin: 0;
   position: fixed;
   top: 0;
@@ -301,7 +304,8 @@ span {
 }
 
 .c-select-competition {
-  margin-right: -20px;
+  margin: auto;
+  padding: 4px 0;
 }
 
 .u-hide {
@@ -343,6 +347,7 @@ span {
   position: relative;
   will-change: transform;
   transition: transform 0.25s var(--global-timing-function);
+  display: grid;
 }
 
 .c-mobile-nav {
@@ -408,10 +413,35 @@ span {
   fill: white;
 }
 
+.c-nav-cancel {
+  background-color: #fff;
+  border: none;
+}
+
+.c-nav-cancel__svg {
+  fill: grey;
+  margin-left: -8px;
+  width: 26px;
+  height: 26px;
+}
+
 .c-select-competition {
   border: var(--global-border-width) var(--global-border-style) rgb(224, 217, 253);
   color: white;
   background-color: var(--global-navbar-color);
+}
+
+.c-logo {
+  margin-top: -60px;
+  margin-bottom: -60px;
+}
+
+.c-logo__svg {
+  margin-left: 64px;
+  margin-top: 18px;
+  color: white;
+  width: 120px;
+  height: 120px;
 }
 
 @keyframes smooth {
@@ -486,6 +516,10 @@ span {
     padding-left: 40px;
     padding-right: 40px;
   }
+
+  .c-navbar {
+    grid-template-columns: 200px repeat(4, 1fr);
+  }
 }
 
 @media (max-width: 950px) {
@@ -495,22 +529,26 @@ span {
   }
 }
 
-@media (min-width: 850px) {
+@media (min-width: 890px) {
   .c-header__mobile-nav-trigger {
     display: var(--global-display-hide);
   }
   .c-mobile-nav {
     display: var(--global-display-hide) !important;
   }
+
+  .c-logo {
+    display: var(--global-display-hide);
+  }
 }
 
-@media (max-width: 849px) {
+@media (max-width: 889px) {
   .u-bigger-screen {
     display: var(--global-display-hide);
   }
 
   .c-header__mobile-nav-trigger {
-    margin-left: 40%;
+    margin-right: 16px;
   }
 
   .c-titel-team-naam {
@@ -523,6 +561,18 @@ span {
     padding: 0 0;
     animation: change 0.4s var(--global-timing-function) 0.1s forwards;
   }
+
+  .c-navbar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .c-select-competition {
+    margin-left: 24px;
+  }
+
+  .c-nav-trigger {
+    margin-right: -40px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -533,16 +583,24 @@ span {
     display: var(--global-display-hide);
   }
 
-  .c-header__mobile-nav-trigger {
-    margin-left: 30%;
-  }
-
   .c-titel-team-naam {
     width: 230px;
   }
 
+  .c-header__mobile-nav-trigger {
+    margin-left: 20%;
+  }
+
   .c-hour {
     display: var(--global-display-hide);
+  }
+
+  .c-logo {
+    display: var(--global-display-hide);
+  }
+
+  .c-navbar {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 480px) {
@@ -552,7 +610,7 @@ span {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 430px) {
   .c-titel-team-played,
   .c-team-played {
     display: var(--global-display-hide);
@@ -560,6 +618,14 @@ span {
 
   .c-header__mobile-nav-trigger {
     margin-left: 20%;
+  }
+
+  th {
+    font-size: var(--global-font-size);
+  }
+
+  .c-select-competition {
+    margin-left: 8px;
   }
 }
 
