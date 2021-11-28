@@ -20,7 +20,8 @@
 
   --global-padding: 24px;
 
-  --global-font-size: 18px;
+  --global-font-size-lg: 1.2rem;
+  --global-font-size-xl: 1.625rem;
 
   --global-display-hide: none;
 
@@ -28,6 +29,9 @@
   --global-bs-color-h-v-blur-spread2: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
   --global-bs-color-h-v-blur-spread3: rgba(255, 255, 255, 0.05) 0px 0px 0px 1px;
   --global-box-shadow-inset: inset;
+
+  --global-rem-sm: 0.5rem;
+  --global-rem-lg: 1.5rem;
 }
 
 /*------------------------------------*\
@@ -76,30 +80,30 @@ h3 {
 }
 
 h1 {
-  font-size: 26px;
-  line-height: 48px;
-  margin: 8px 0 0 16px;
+  font-size: var(--global-font-size-xl);
+  line-height: 3rem;
+  margin: var(--global-rem-sm) 0 0 1rem;
 }
 
 h2 {
-  font-size: 32px;
-  line-height: 40px;
-  margin: 0 0 24px;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  margin: 0 0 var(--global-rem-lg);
 }
 
 h3 {
-  font-size: 26px;
-  line-height: 32px;
-  margin: 0 0 24px;
+  font-size: var(--global-font-size-xl);
+  line-height: 2rem;
+  margin: 0 0 var(--global-rem-lg);
 }
 
 h4,
 h5,
 h6 {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
-  line-height: 24px;
-  margin: 0 0 24px;
+  line-height: var(--global-rem-lg);
+  margin: 0 0 var(--global-rem-lg);
 }
 
 p,
@@ -109,7 +113,7 @@ dl,
 table,
 address,
 figure {
-  margin: 0 0 24px;
+  margin: 0 0 var(--global-rem-lg);
 }
 
 ul,
@@ -124,9 +128,9 @@ li ol {
 
 blockquote {
   font-style: normal;
-  font-size: 23px;
-  line-height: 32px;
-  margin: 0 0 24px;
+  font-size: var(--global-rem-lg);
+  line-height: 2rem;
+  margin: 0 0 var(--global-rem-lg);
 }
 
 blockquote * {
@@ -136,20 +140,20 @@ blockquote * {
 
 figcaption {
   font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  margin-top: 8px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-top: var(--global-rem-sm);
 }
 
 hr {
   border: 0;
   height: 1px;
   background: LightGrey;
-  margin: 0 0 24px;
+  margin: 0 0 var(--global-rem-lg);
 }
 
 a {
-  font-size: var(--global-font-size);
+  font-size: var(--global-font-size-lg);
   color: var(--global-color-white);
   text-decoration: none;
 }
@@ -170,7 +174,7 @@ input {
 }
 
 select {
-  max-width: 170px;
+  max-width: 10.625rem;
   width: 100%;
 }
 
@@ -179,26 +183,26 @@ input::placeholder {
 }
 
 table {
-  margin: 0px auto 16px;
+  margin: 0px auto 1rem;
   width: 95%;
   table-layout: fixed;
-  padding-bottom: 16px;
+  padding-bottom: 1rem;
 }
 td {
-  font-size: var(--global-font-size);
+  font-size: var(--global-font-size-lg);
   text-align: center;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
 }
 th {
-  font-size: 20px;
-  padding-bottom: 16px;
+  font-size: 1.25rem;
+  padding-bottom: 1rem;
   color: var(--global-title-color);
 }
 
 svg {
-  width: 24px;
-  height: 24px;
+  width: var(--global-rem-lg);
+  height: var(--global-rem-lg);
 }
 
 span {
@@ -211,8 +215,8 @@ span {
   /* background-color: rgb(248, 248, 248); */
   margin: 32px auto;
   border: 2px var(--global-border-style) var(--global-color);
-  border-radius: 8px;
-  box-shadow: var(--global-box-shadow-color) 0px 12px 28px 0px, var(--global-bs-color-h-v-blur-spread2), var(--global-bs-color-h-v-blur-spread3) var(--global-box-shadow-inset);
+  border-radius: 1rem;
+  box-shadow: var(--global-box-shadow-color) 0rem 0.75rem 1.75rem 0rem, var(--global-bs-color-h-v-blur-spread2), var(--global-bs-color-h-v-blur-spread3) var(--global-box-shadow-inset);
   opacity: var(--global-opacity);
   animation: smooth 0.2s var(--global-timing-function) 0.1s forwards;
   background-color: rgb(245, 244, 247);
@@ -223,20 +227,20 @@ span {
 }
 
 .c-titel-team-naam {
-  width: 300px;
+  width: 18.75rem;
 }
 
 .c-team-position {
-  width: 20px;
+  width: 1.25rem;
 }
 
 .c-navbar {
   z-index: 1;
   display: grid;
-  grid-template-columns: 250px repeat(4, 1fr);
+  grid-template-columns: 15.625rem repeat(4, 1fr);
   text-align: center;
   background-color: var(--global-navbar-color);
-  padding: var(--global-padding) 16px;
+  padding: var(--global-padding) 1rem;
   margin: 0;
   position: fixed;
   top: 0;
@@ -244,7 +248,7 @@ span {
 }
 
 .c-nav__option {
-  font-size: var(--global-font-size);
+  font-size: var(--global-font-size-lg);
   color: var(--global-color-white);
   background: linear-gradient(to left, var(--global-navbar-color) 50%, var(--global-selected-color) 50%) right;
   background-size: 200%;
@@ -253,8 +257,8 @@ span {
 
 .c-nav__option-mobile {
   border-bottom: var(--global-border-width) var(--global-border-style) transparent;
-  border-bottom-width: 16px;
-  font-size: 26px;
+  border-bottom-width: 1rem;
+  font-size: var(--global-font-size-xl);
   color: black;
 }
 
@@ -272,8 +276,8 @@ span {
 .is-selected {
   background-color: var(--global-selected-color);
   padding: var(--global-padding) 0;
-  margin-top: -24px;
-  margin-bottom: -24px;
+  margin-top: -1.5rem;
+  margin-bottom: -1.5rem;
   animation: change 0s var(--global-timing-function) 0s forwards;
 }
 
@@ -288,21 +292,21 @@ span {
 
 .c-match {
   border-bottom: var(--global-border-width) var(--global-border-style) rgba(8, 8, 8, 0.15);
-  box-shadow: var(--global-box-shadow-color) 0px 2px 12px 0px, var(--global-bs-color-h-v-blur-spread2), var(--global-bs-color-h-v-blur-spread3) var(--global-box-shadow-inset);
+  box-shadow: var(--global-box-shadow-color) 0rem 0.125rem 0.75rem 0rem, var(--global-bs-color-h-v-blur-spread2), var(--global-bs-color-h-v-blur-spread3) var(--global-box-shadow-inset);
   opacity: var(--global-opacity);
   animation: smooth 0.2s var(--global-timing-function) 0.1s forwards;
 }
 
 .c-player {
   border-bottom: var(--global-border-width) var(--global-border-style) rgba(8, 8, 8, 0.15);
-  box-shadow: var(--global-box-shadow-color) 0px 1px 3px 0px, var(--global-bs-color-h-v-blur-spread2), var(--global-bs-color-h-v-blur-spread3) var(--global-box-shadow-inset);
+  box-shadow: var(--global-box-shadow-color) 0rem 0.063rem 0.188rem 0rem, var(--global-bs-color-h-v-blur-spread2), var(--global-bs-color-h-v-blur-spread3) var(--global-box-shadow-inset);
   opacity: var(--global-opacity);
   animation: smooth 0.2s var(--global-timing-function) 0.1s forwards;
 }
 
 .c-select-competition {
   margin: auto;
-  padding: 4px 0;
+  padding: 0.25rem 0;
 }
 
 .u-hide {
@@ -374,7 +378,7 @@ span {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .c-mobile-nav__bg {
@@ -413,7 +417,7 @@ span {
 }
 
 .c-nav-trigger__svg {
-  margin-top: 2px;
+  margin-top: 0.125rem;
   fill: var(--global-color-white);
 }
 
@@ -424,9 +428,9 @@ span {
 
 .c-nav-cancel__svg {
   fill: grey;
-  margin-left: -8px;
-  width: 26px;
-  height: 26px;
+  margin-left: -0.5rem;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .c-select-competition {
@@ -436,16 +440,16 @@ span {
 }
 
 .c-logo {
-  margin-top: -60px;
-  margin-bottom: -60px;
+  margin-top: -3.75rem;
+  margin-bottom: -3.75rem;
 }
 
 .c-logo__svg {
-  margin-left: 64px;
-  margin-top: 18px;
+  margin-left: 4rem;
+  margin-top: 1.125rem;
   color: var(--global-color-white);
-  width: 120px;
-  height: 120px;
+  width: 7.5rem;
+  height: 7.5rem;
 }
 
 @keyframes smooth {
@@ -462,25 +466,25 @@ span {
 
 @keyframes balVal {
   100% {
-    transform: translateY(10px);
+    transform: translateY(0.625rem);
   }
 }
 
 @keyframes balBounce {
   20% {
-    transform: translateY(14px);
+    transform: translateY(0.875rem);
   }
   40% {
-    transform: translateY(0px);
+    transform: translateY(0rem);
   }
   60% {
-    transform: translateY(11px);
+    transform: translateY(0.688rem);
   }
   80% {
-    transform: translateY(0px);
+    transform: translateY(0rem);
   }
   100% {
-    transform: translateY(8px);
+    transform: translateY(var(--global-rem-sm));
   }
 }
 
@@ -492,7 +496,7 @@ span {
 
 @media (max-width: 1100px) {
   .c-navbar {
-    grid-template-columns: 200px repeat(4, 1fr);
+    grid-template-columns: 12.5rem repeat(4, 1fr);
   }
 }
 
@@ -515,17 +519,18 @@ span {
   }
 
   .c-header__mobile-nav-trigger {
-    margin-right: 16px;
+    margin-right: 1rem;
   }
 
   .c-titel-team-naam {
-    width: 250px;
+    width: 15.625rem;
   }
   .is-selected {
+    --local-zero: 0;
     background: none;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding: 0 0;
+    margin-bottom: var(--local-zero);
+    margin-top: var(--local-zero);
+    padding: var(--local-zero) var(--local-zero);
     animation: change 0.4s var(--global-timing-function) 0.1s forwards;
   }
 
@@ -534,11 +539,11 @@ span {
   }
 
   .c-select-competition {
-    margin-left: 24px;
+    margin-left: var(--global-rem-lg);
   }
 
   .c-nav-trigger {
-    margin-right: -40px;
+    margin-right: -2.5rem;
   }
 }
 
@@ -551,7 +556,7 @@ span {
   }
 
   .c-titel-team-naam {
-    width: 230px;
+    width: 14.375rem;
   }
 
   .c-header__mobile-nav-trigger {
@@ -588,16 +593,16 @@ span {
   }
 
   th {
-    font-size: var(--global-font-size);
+    font-size: var(--global-font-size-lg);
   }
 
   .c-select-competition {
-    margin-left: 8px;
+    margin-left: var(--global-rem-sm);
   }
 }
 
 @media (max-width: 355px) {
   .c-titel-team-naam {
-    width: 150px;
+    width: 9.375rem;
   }
 }
